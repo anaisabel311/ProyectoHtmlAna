@@ -4,4 +4,25 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-</web-app>
+
+
+
+<servlet>
+  	<servlet-name>usuarioServlet</servlet-name>
+  	<display-name>usuarioServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.usuarioServlet</servlet-class>
+  	<init-param>
+  		<param-name>subtitle</param-name>
+  		<param-value>COMIENZA USUARIO SERVLET</param-value>
+  		<description></description>
+  	</init-param>
+  </servlet>
+  
+   <servlet-mapping>
+  	<servlet-name>usuarioServlet</servlet-name>
+  	<url-pattern>/usuarioServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+</web-app>  

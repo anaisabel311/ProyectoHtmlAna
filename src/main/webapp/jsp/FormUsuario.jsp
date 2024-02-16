@@ -1,37 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="es-ES">
+<html>
 <head>
-<meta charset="utf-8">
-<title>IntroduccionUsuario</title>
-</head>
+<meta charset="ISO-8859-1">
+<meta charset='utf-8'>
+<title>Insert title here</title>
 <h1>FORMULARIO DE USUARIO </h1>
 <body>
-	<form action="" method="post">
+	<form action="/ProyectoWebFormulario/usuarioServlet.java" method="post" id= "FormUsu">
 		<label id="NombreUsuario">Nombre: <input type="text" name="NombreUsuario"></label> <br><br>
 		<label id="ApellidosUsuario">Apellidos: <input type="text" name="ApellidosUsuario"></label> <br><br>
 		<label id="password" for="password1">Contraseña:</label>
 		<input type="password" name="password" id="password1"><br><br>
+		<label id="Repassword" for="password2">Contraseña:</label>
+		<input type="Repassword" name="password" id="password2"><br><br>
 		<label id="EmailUsuario">Email: <input type="text" name="EmailUsuario"></label> <br><br>
 		<label id="TelefonoUsuario">Teléfono: <input type="text" name="TelefonoUsuario"></label> <br><br>
 		<label id="FechaNaciemiento">Fecha Nacimiento: <input type="date" name="FechaNaciemiento"></label> <br>
 		
-		<label id="lista_de_seleccion_sexo"><br> Sexo: <br></label> 
-		<select name="lista_de_seleccion_sexo">
-			<option value="Femenino">Femenino</option>
-			<option value="Masculino">Masculino</option>
-			<option value="Otros">Otros</option>
-		</select> <br> <br>
+		<label for="sexo">Seleccione Sexo</label><br>
+    M <input type="radio" name="sexo" value="Masculino" tabindex="">
+    F <input type="radio" name="sexo" value="Femenino" tabindex="">
+    OTROS <input type="radio" name="sexo" value="Otros" checked tabindex=""><br>
 
 		<label id="DniUsuario">DNI: <input type="text"name="DniUsuario"></label><br><br>
 
 		<label id="SeleccionRol"><br>Selecciona el rol del usuario:<br></label> 
 		<select id="seleccion" name="SeleccionRol" size="2" multiple>
 			<option value="Usuario">Usuario</option>
-			<option value="Administrador">Administrador</option>
+			<option value="AdministradorSr">AdministradorSr</option>
+			<option value="ProgramadorSr">ProgramadorSr</option>
+			<option value="AdministradorJr">AdministradorJr</option>
+			<option value="ProgramadorJr">ProgramadorJr</option>
+			
 		</select><br> <br>
 
 
-		<br> <input type="submit" value="Enviar datos">
+		<br> <input id="enviar_usuario" type="submit" value="Dar de Alta">
 	</form>
 </body>
 </html>
