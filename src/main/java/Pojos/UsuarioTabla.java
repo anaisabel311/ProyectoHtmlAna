@@ -43,6 +43,9 @@ public class UsuarioTabla {
  @Column (name= "Password", length=8, nullable=false)
  private String passUsuario;
  
+ @Column (name= "IdUsuario", length=20, nullable=false)
+ private String idUsuario;
+ 
  @Column (name= "Email", length=40, nullable=false)
  private String emailUsuario;
  
@@ -57,6 +60,9 @@ public class UsuarioTabla {
  
  @Column (name= "DNI", length=10, nullable=false)
  private String dni;
+ 
+ 
+ 
 
  // CONSTRUCTORES
  
@@ -64,13 +70,14 @@ public UsuarioTabla() {
 	super();
 }
 
-public UsuarioTabla(long id, String nomUsuario, String apeUsuario, String passUsuario, String emailUsuario,
-		int telUsuario, Date fAlta, String sexo, String dni) {
+public UsuarioTabla( List<RolTabla> roles, String nomUsuario, String apeUsuario, String passUsuario,
+		String idUsuario, String emailUsuario, int telUsuario, Date fAlta, String sexo, String dni) {
 	super();
-	this.id = id;
+	this.roles = roles;
 	this.nomUsuario = nomUsuario;
 	this.apeUsuario = apeUsuario;
 	this.passUsuario = passUsuario;
+	this.idUsuario = idUsuario;
 	this.emailUsuario = emailUsuario;
 	this.telUsuario = telUsuario;
 	this.fAlta = fAlta;
@@ -81,12 +88,21 @@ public UsuarioTabla(long id, String nomUsuario, String apeUsuario, String passUs
 
 //GETTERS AND SETTERS
 
+
 public long getId() {
 	return id;
 }
 
 public void setId(long id) {
 	this.id = id;
+}
+
+public List<RolTabla> getRoles() {
+	return roles;
+}
+
+public void setRoles(List<RolTabla> roles) {
+	this.roles = roles;
 }
 
 public String getNomUsuario() {
@@ -111,6 +127,14 @@ public String getPassUsuario() {
 
 public void setPassUsuario(String passUsuario) {
 	this.passUsuario = passUsuario;
+}
+
+public String getIdUsuario() {
+	return idUsuario;
+}
+
+public void setIdUsuario(String idUsuario) {
+	this.idUsuario = idUsuario;
 }
 
 public String getEmailUsuario() {
@@ -153,18 +177,13 @@ public void setDni(String dni) {
 	this.dni = dni;
 }
 
-@Override
-public String toString() {
-	return "UsuarioTabla [id=" + id + ", nomUsuario=" + nomUsuario + ", apeUsuario=" + apeUsuario + ", passUsuario="
-			+ passUsuario + ", emailUsuario=" + emailUsuario + ", telUsuario=" + telUsuario + ", fAlta=" + fAlta
-			+ ", sexo=" + sexo + ", dni=" + dni + "]";
-}
- 
- 
 
 
- 
- 
+
+
+
+
+
  
  
 }

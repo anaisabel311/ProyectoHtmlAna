@@ -35,9 +35,8 @@ public class RolTabla {
 		super();
 	}
 
-	public RolTabla(long id, String rolUsuario) {
+	public RolTabla( String rolUsuario) {
 		super();
-		this.id = id;
 		RolUsuario = rolUsuario;
 	}
 	

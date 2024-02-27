@@ -8,15 +8,17 @@
 <title>Insert title here</title>
 <h1>FORMULARIO DE USUARIO </h1>
 <body>
-	<form action="/ProyectoWebFormulario/usuarioServlet.java" method="post" id= "FormUsu">
+	<form action="/ProyectoWebFormulario/usuarioServlet" method="post" id= "FormUsu">
 		<label id="NombreUsuario">Nombre: <input type="text" name="NombreUsuario"></label> <br><br>
 		<label id="ApellidosUsuario">Apellidos: <input type="text" name="ApellidosUsuario"></label> <br><br>
-		<label id="password" for="password1">Contraseña:</label>
-		<input type="password" name="password" id="password1"><br><br>
-		<label id="Repassword" for="password2">Contraseña:</label>
-		<input type="Repassword" name="password" id="password2"><br><br>
+		<label id="IdUsuario">ID Usuario:<input type="text" name="IdUsuario"></label> <br><br>
+		<label id="password">Contrase�a:<input type="password" name="password" id="password"></label> <br><br>
+
+<!-- 		<label id="Repassword" for="password2">Contraseña:</label>
+		<input type="Repassword" name="password" id="password2"><br><br> -->
+		
 		<label id="EmailUsuario">Email: <input type="text" name="EmailUsuario"></label> <br><br>
-		<label id="TelefonoUsuario">Teléfono: <input type="text" name="TelefonoUsuario"></label> <br><br>
+		<label id="TelefonoUsuario">Telefono: <input type="text" name="TelefonoUsuario"></label> <br><br>
 		<label id="FechaNaciemiento">Fecha Nacimiento: <input type="date" name="FechaNaciemiento"></label> <br>
 		
 		<label for="sexo">Seleccione Sexo</label><br>
@@ -27,7 +29,7 @@
 		<label id="DniUsuario">DNI: <input type="text"name="DniUsuario"></label><br><br>
 
 		<label id="SeleccionRol"><br>Selecciona el rol del usuario:<br></label> 
-		<select id="seleccion" name="SeleccionRol" size="2" multiple>
+		<select id="seleccion" name="SeleccionRol" size="5" multiple>
 			<option value="Usuario">Usuario</option>
 			<option value="AdministradorSr">AdministradorSr</option>
 			<option value="ProgramadorSr">ProgramadorSr</option>
