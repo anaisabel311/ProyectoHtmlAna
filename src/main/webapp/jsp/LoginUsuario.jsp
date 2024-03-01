@@ -12,9 +12,10 @@
 
 <script type="text/javascript" src="../validacionesjs/validacionLogin.js"></script>
 <body>
-    <form action="/ProyectoWebFormulario/usuarioServlet.java" onsubmit= "return validarLogin()" >
+    <form action="/ProyectoWebFormulario/LoginServlet" onsubmit= "return validarLogin()" >
         <label for="username">Usuario:</label>
         <input type="text" id="username" name="username" maxlength="20"><br><br>
+        
 
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" maxlength="8" required><br><br>

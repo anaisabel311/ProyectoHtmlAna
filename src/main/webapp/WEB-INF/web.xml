@@ -2,27 +2,46 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+<web-app> 
+	<display-name>Archetype Created Web Application</display-name>
 
 
 
-<servlet>
-  	<servlet-name>usuarioServlet</servlet-name>
-  	<display-name>usuarioServlet</display-name>
-  	<description></description>
-  	<servlet-class>servlets.usuarioServlet</servlet-class>
-  	<init-param>
-  		<param-name>subtitle</param-name>
-  		<param-value>COMIENZA USUARIO SERVLET</param-value>
-  		<description></description>
-  	</init-param>
-  </servlet>
-  
-   <servlet-mapping>
-  	<servlet-name>usuarioServlet</servlet-name>
-  	<url-pattern>/usuarioServlet</url-pattern>
-  </servlet-mapping>
-  
-  
+	<servlet>
+		<servlet-name>UsuarioServlet</servlet-name>
+		<display-name>UsuarioServlet</display-name>
+		<description></description>
+		<servlet-class>servlets.UsuarioServlet</servlet-class>
+		<init-param>
+			<param-name>subtitle</param-name>
+			<param-value>LISTADO DE USUARIOS</param-value>
+			<description></description>
+		</init-param>
+	</servlet>
+
+
+
+	<servlet-mapping>
+		<servlet-name>UsuarioServlet</servlet-name>
+		<url-pattern>/UsuarioServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<display-name>LoginServlet</display-name>
+		<description></description>
+		<servlet-class>servlets.LoginServlet</servlet-class>
+		<init-param>
+			<param-name>subtitle</param-name>
+			<param-value>SIGN-IN USUARIOS</param-value>
+			<description></description>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+
 </web-app>  

@@ -20,7 +20,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table (name = "TB_USUARIOS")
+@Table (name = "TB_USUARIOSTABLA")
 
 public class UsuarioTabla {
  @Id

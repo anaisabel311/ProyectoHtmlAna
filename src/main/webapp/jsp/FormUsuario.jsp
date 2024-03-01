@@ -11,8 +11,12 @@
 	<form action="/ProyectoWebFormulario/usuarioServlet" method="post" id= "FormUsu">
 		<label id="NombreUsuario">Nombre: <input type="text" name="NombreUsuario"></label> <br><br>
 		<label id="ApellidosUsuario">Apellidos: <input type="text" name="ApellidosUsuario"></label> <br><br>
-		<label id="IdUsuario">ID Usuario:<input type="text" name="IdUsuario"></label> <br><br>
-		<label id="password">Contraseña:<input type="password" name="password" id="password"></label> <br><br>
+		
+		<%String username= (String)request.getAttribute("username");
+		  String password= (String)request.getAttribute("password");	
+		%>
+		<label id="IdUsuario">IDUsuario:<%=username %></label> <br><br>
+		<label id="password">Contraseña:<%=password %></label> <br><br>
 
 <!-- 		<label id="Repassword" for="password2">ContraseÃ±a:</label>
 		<input type="Repassword" name="password" id="password2"><br><br> -->

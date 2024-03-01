@@ -4,28 +4,34 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-import javax.servlet.Servlet;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 import Pojos.RolTabla;
 import Pojos.UsuarioTabla;
+import daos.RolDao;
 import daos.UsuarioDAO;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 
 /**
  * Servlet implementation class AlumnoServlet
  */
 
-public class usuarioServlet extends HttpServlet {
+public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String subtitulo;
+
+	private RolDao roldao;
 	
-    public usuarioServlet() {
+    public UsuarioServlet() {
        super();
     }
 
@@ -33,9 +39,16 @@ public class usuarioServlet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		subtitulo=config.getInitParameter("subtitle");
-		System.out.println("Entrando init con subtitulo "+ subtitulo );
-		super.init(config);
+				super.init(config);
+				subtitulo = config.getInitParameter("subtitle");
+	
+				roldao = new RolDao();
+				roldao.insert(new RolTabla("Usuario"));
+				roldao.insert(new RolTabla("ProgramadorJr"));
+				roldao.insert(new RolTabla("ProgramadorSr"));
+				roldao.insert(new RolTabla("AdministradorJr"));
+				roldao.insert(new RolTabla("AdministradorSr"));
+			
 	}
 		
 	/**
@@ -106,10 +119,19 @@ public class usuarioServlet extends HttpServlet {
 		
 		udao.insert(usuario);
 		
+// Recuperamos los usuarios de la bbdd
+		
+		List<UsuarioTabla> listusuarios = udao.get();
 		
 		
+		Map<String, UsuarioTabla> datousuario = new HashMap<String, UsuarioTabla>();
+		datousuario.put("listadoUsuarios", (UsuarioTabla) listusuarios);
 		
+// Lo mandamos a jsp Listado Usuarios
 		
+		request.setAttribute("mapa", datousuario);
+		RequestDispatcher rd = request.getRequestDispatcher("ProyectoWebFormulario/ListadoUsuarios.jsp");
+		rd.forward(request, response);
 		
 		
 		

@@ -4,7 +4,7 @@ import java.util.List;
 
 import Pojos.UsuarioTabla;
 import jakarta.persistence.EntityManager;
-import servlets.usuarioServlet;
+import servlets.UsuarioServlet;
 import utils.JpaUtil;
 
 public class UsuarioDAO  {
