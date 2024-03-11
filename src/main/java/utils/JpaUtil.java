@@ -25,7 +25,7 @@ public class JpaUtil {
     
 	public static EntityManager getEM () {
 		
-		return getEM("hibernateOracl");
+		return getEM("hibernateOracle");
 
 	}
 	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,9 +30,12 @@ public class UsuarioTabla {
  @Column (name="IdUsuario",nullable = false, updatable = false)
  private long id;
  
+ 
  @ManyToMany (cascade=CascadeType.ALL, fetch = FetchType.LAZY)
  
- @JoinTable (name="TB_USUARIOS_ROLES")
+ @JoinTable(name="TB_ROLUSUARIO", joinColumns = {@JoinColumn(name = "IdUsuario")},
+ inverseJoinColumns = {@JoinColumn(name = "ID")})
+ 
  private List<RolTabla> roles = new ArrayList<RolTabla>();
  
  @Column (name= "NombreUsuario", length=20, nullable=false)

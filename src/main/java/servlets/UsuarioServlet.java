@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import Pojos.RolTabla;
 import Pojos.UsuarioTabla;
 import daos.RolDao;
@@ -26,10 +29,12 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 
 public class UsuarioServlet extends HttpServlet {
+	
+	private static final Logger logger = LogManager.getLogger(UsuarioServlet.class);
 	private static final long serialVersionUID = 1L;
 	private String subtitulo;
 
-	private RolDao roldao;
+	
 	
     public UsuarioServlet() {
        super();
@@ -41,14 +46,8 @@ public class UsuarioServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 				super.init(config);
 				subtitulo = config.getInitParameter("subtitle");
-	
-				roldao = new RolDao();
-				roldao.insert(new RolTabla("Usuario"));
-				roldao.insert(new RolTabla("ProgramadorJr"));
-				roldao.insert(new RolTabla("ProgramadorSr"));
-				roldao.insert(new RolTabla("AdministradorJr"));
-				roldao.insert(new RolTabla("AdministradorSr"));
-			
+				
+				
 	}
 		
 	/**
@@ -89,6 +88,7 @@ public class UsuarioServlet extends HttpServlet {
 		for (String rol : rolUsuario) {
 			RolTabla rols = new RolTabla(rol);
 			usuarioRoles.add(rols);
+			logger.info("Rol guardado en bbdd");
 		}
 		
 // crear objeto tipo usuarioDAO 
@@ -118,11 +118,10 @@ public class UsuarioServlet extends HttpServlet {
 // Insertamos el usuario en la bbdd
 		
 		udao.insert(usuario);
-		
+		logger.info("Usuario guardado en bbdd");
 // Recuperamos los usuarios de la bbdd
 		
 		List<UsuarioTabla> listusuarios = udao.get();
-		
 		
 		Map<String, UsuarioTabla> datousuario = new HashMap<String, UsuarioTabla>();
 		datousuario.put("listadoUsuarios", (UsuarioTabla) listusuarios);

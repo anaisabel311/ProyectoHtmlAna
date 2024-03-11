@@ -1,49 +1,99 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="ISO-8859-1">
-<meta charset='utf-8'>
-<title>Insert title here</title>
-<h1>FORMULARIO DE USUARIO </h1>
+    <meta charset="utf-8">
+    <title>FORMULARIO DE USUARIO</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
 <body>
-	<form action="/ProyectoWebFormulario/usuarioServlet" method="post" id= "FormUsu">
-		<label id="NombreUsuario">Nombre: <input type="text" name="NombreUsuario"></label> <br><br>
-		<label id="ApellidosUsuario">Apellidos: <input type="text" name="ApellidosUsuario"></label> <br><br>
-		
-		<%String username= (String)request.getAttribute("username");
-		  String password= (String)request.getAttribute("password");	
-		%>
-		<label id="IdUsuario">IDUsuario:<%=username %></label> <br><br>
-		<label id="password">Contrase�a:<%=password %></label> <br><br>
+<header class="bg-dark text-white py-3">
+    <div class="container">
+       <h1>FORMULARIO DE USUARIO</h1>
+    </div>
+</header>
+<div class="container mt-5">
+    
 
-<!-- 		<label id="Repassword" for="password2">Contraseña:</label>
-		<input type="Repassword" name="password" id="password2"><br><br> -->
-		
-		<label id="EmailUsuario">Email: <input type="text" name="EmailUsuario"></label> <br><br>
-		<label id="TelefonoUsuario">Telefono: <input type="text" name="TelefonoUsuario"></label> <br><br>
-		<label id="FechaNaciemiento">Fecha Nacimiento: <input type="date" name="FechaNaciemiento"></label> <br>
-		
-		<label for="sexo">Seleccione Sexo</label><br>
-    M <input type="radio" name="sexo" value="Masculino" tabindex="">
-    F <input type="radio" name="sexo" value="Femenino" tabindex="">
-    OTROS <input type="radio" name="sexo" value="Otros" checked tabindex=""><br>
+    <form action="/ProyectoWebFormulario/UsuarioServlet" method="post" id="FormUsu">
+        <div class="form-group">
+            <label for="NombreUsuario">Nombre:</label>
+            <input type="text" class="form-control" name="NombreUsuario">
+        </div>
 
-		<label id="DniUsuario">DNI: <input type="text"name="DniUsuario"></label><br><br>
+        <div class="form-group">
+            <label for="ApellidosUsuario">Apellidos:</label>
+            <input type="text" class="form-control" name="ApellidosUsuario">
+        </div>
 
-		<label id="SeleccionRol"><br>Selecciona el rol del usuario:<br></label> 
-		<select id="seleccion" name="SeleccionRol" size="5" multiple>
-			<option value="Usuario">Usuario</option>
-			<option value="AdministradorSr">AdministradorSr</option>
-			<option value="ProgramadorSr">ProgramadorSr</option>
-			<option value="AdministradorJr">AdministradorJr</option>
-			<option value="ProgramadorJr">ProgramadorJr</option>
-			
-		</select><br> <br>
+        <div class="form-group">
+            <label for="IdUsuario">IDUsuario:</label>
+            <input type="text" class="form-control" name="IdUsuario">
+        </div>
+
+        <div class="form-group">
+            <label for="Password">Contraseña:</label>
+            <input type="text" class="form-control" name="passUsuario">
+        </div>
+
+        <div class="form-group">
+            <label for="EmailUsuario">Email:</label>
+            <input type="text" class="form-control" name="EmailUsuario">
+        </div>
+
+        <div class="form-group">
+            <label for="TelefonoUsuario">Telefono:</label>
+            <input type="text" class="form-control" name="TelefonoUsuario">
+        </div>
+
+        <div class="form-group">
+            <label for="FechaNaciemiento">Fecha Nacimiento:</label>
+            <input type="date" class="form-control" name="FechaNaciemiento">
+        </div>
+
+        <div class="form-group">
+            <label for="sexo">Seleccione Sexo:</label><br>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="sexo" value="Masculino" checked>
+                <label class="form-check-label" for="sexo">M</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="sexo" value="Femenino">
+                <label class="form-check-label" for="sexo">F</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="sexo" value="Otros">
+                <label class="form-check-label" for="sexo">OTROS</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="DniUsuario">DNI:</label>
+            <input type="text" class="form-control" name="DniUsuario">
+        </div>
+
+        <div class="form-group">
+            <label for="SeleccionRol">Selecciona el rol del usuario:</label>
+            <select id="seleccion" name="SeleccionRol" class="form-control" size="5" multiple>
+                <option value="Usuario">Usuario</option>
+                <option value="AdministradorSr">AdministradorSr</option>
+                <option value="ProgramadorSr">ProgramadorSr</option>
+                <option value="AdministradorJr">AdministradorJr</option>
+                <option value="ProgramadorJr">ProgramadorJr</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Dar de Alta</button>
+    </form>
+</div>
+<footer class="text-center mt-5">
+    <p>Ana. 2024</p>
+</footer>
 
 
-		<br> <input id="enviar_usuario" type="submit" value="Dar de Alta">
-	</form>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
